@@ -23,4 +23,12 @@
   --button-height: 68px;
 
   --transition-duration: 0.2s;
+
+  @include mobile {
+    --section-padding-y: calc(100px / 2);
+  }
+
+  @include mobile {
+    --section-padding-y: calc(60px / 2);
+  }
 }
