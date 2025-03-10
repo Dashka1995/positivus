@@ -1,38 +1,47 @@
 body {
-    @include fluid-text(18, 16);//тег p по макету
+  @include fluid-text(18, 16); //тег p по макету
 
-    font-family: var(--font-family-base );
-    font-weight: 400;//преобладающая по макету жирность шрифта
-    line-height: 1.28;//в гугл хроме обычно такой коэффициент, ставим его, чтобы во всех браузерах выглядело примерно одинаково
-    color: var(--color-dark);
-    background-color: var(--color-light);
+  font-family: var(--font-family-base);
+  font-weight: 400; //преобладающая по макету жирность шрифта
+  line-height: 1.28; //в гугл хроме обычно такой коэффициент, ставим его, чтобы во всех браузерах выглядело примерно одинаково
+  color: var(--color-dark);
+  background-color: var(--color-light);
 }
 
-a, button, textarea, svg * {
-    transition-duration: var(--transition-duration);
+a,
+button,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
-h1, h2, h3, h4 {
-    font-weight: 500;
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
 }
 
 h1 {
-    @include fluid-text(60, 43);//смотрим макс и мин по макету для каждого заголовка
+  @include fluid-text(
+    60,
+    43
+  ); //смотрим макс и мин по макету для каждого заголовка
 }
 
 h2 {
-    @include fluid-text(40, 36);
+  @include fluid-text(40, 36);
 }
 
 h3 {
-    @include fluid-text(30, 26);
+  @include fluid-text(30, 26);
 }
 
 h4 {
-    @include fluid-text(20, 18);
+  @include fluid-text(20, 18);
 }

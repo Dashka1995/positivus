@@ -9,36 +9,27 @@
 }
 
 /**
-  Убираем внутренние отступы слева тегам списков,
-  у которых есть атрибут class
- */
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
 :where(ul, ol):where([class]) {
   padding-left: 0;
 }
 
 /**
-  Убираем внешние отступы body и двум другим тегам,
-  у которых есть атрибут class
- */
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
 body,
 :where(blockquote, figure):where([class]) {
   margin: 0;
 }
 
 /**
-  Убираем внешние отступы вертикали нужным тегам,
-  у которых есть атрибут class
- */
-:where(h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-dl):where([class]) {
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
   margin-block: 0;
 }
 
@@ -53,9 +44,9 @@ dl):where([class]) {
 }
 
 /**
-  Убираем стандартный маркер маркированному списку,
-  у которого есть атрибут class
- */
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
 :where(ul[class]) {
   list-style: none;
 }
@@ -65,26 +56,26 @@ dl):where([class]) {
 }
 
 /**
-  Обнуляем вертикальные внешние отступы параграфа,
-  объявляем локальную переменную для внешнего отступа вниз,
-  чтобы избежать взаимодействие с более сложным селектором
- */
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
 p {
   --paragraphMarginBottom: 24px;
   margin-block: 0;
 }
 
 /**
-  Внешний отступ вниз для параграфа без атрибута class,
-  который расположен не последним среди своих соседних элементов
- */
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
 p:where(:not([class]):not(:last-child)) {
   margin-bottom: var(--paragraphMarginBottom);
 }
 
 /**
-  Упрощаем работу с изображениями и видео
- */
+   Упрощаем работу с изображениями и видео
+  */
 img,
 video {
   display: block;
@@ -93,8 +84,8 @@ video {
 }
 
 /**
-  Наследуем свойства шрифт для полей ввода
- */
+   Наследуем свойства шрифт для полей ввода
+  */
 input,
 textarea,
 select,
@@ -104,20 +95,20 @@ button {
 
 html {
   /**
-    Пригодится в большинстве ситуаций
-    (когда, например, нужно будет "прижать" футер к низу сайта)
-   */
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
   height: 100%;
   /**
-    Убираем скачок интерфейса по горизонтали
-    при появлении / исчезновении скроллбара
-   */
+     Убираем скачок интерфейса по горизонтали
+     при появлении / исчезновении скроллбара
+    */
   scrollbar-gutter: stable;
 }
 
 /**
-  Плавный скролл
- */
+   Плавный скролл
+  */
 html,
 :has(:target) {
   scroll-behavior: smooth;
@@ -125,70 +116,68 @@ html,
 
 body {
   /**
-    Пригодится в большинстве ситуаций
-    (когда, например, нужно будет "прижать" футер к низу сайта)
-   */
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
   min-height: 100%;
   /**
-    Унифицированный интерлиньяж
-   */
+     Унифицированный интерлиньяж
+    */
   line-height: 1.5;
 }
 
 /**
-  Нормализация высоты элемента ссылки при его инспектировании в DevTools
- */
+   Нормализация высоты элемента ссылки при его инспектировании в DevTools
+  */
 a:where([class]) {
   display: inline-flex;
 }
 
 /**
-  Курсор-рука при наведении на элемент
- */
+   Курсор-рука при наведении на элемент
+  */
 button,
 label {
   cursor: pointer;
 }
 
 /**
-  Приводим к единому цвету svg-элементы
-  (за исключением тех, у которых уже указан
-  атрибут fill со значением 'none' или начинается с 'url')
- */
-:where([fill]:not([fill=none],
-[fill^=url])) {
+   Приводим к единому цвету svg-элементы
+   (за исключением тех, у которых уже указан
+   атрибут fill со значением 'none' или начинается с 'url')
+  */
+:where([fill]:not([fill=none], [fill^=url])) {
   fill: currentColor;
 }
 
 /**
-  Приводим к единому цвету svg-элементы
-  (за исключением тех, у которых уже указан
-  атрибут stroke со значением 'none')
- */
-:where([stroke]:not([stroke=none],
-[stroke^=url])) {
+   Приводим к единому цвету svg-элементы
+   (за исключением тех, у которых уже указан
+   атрибут stroke со значением 'none')
+  */
+:where([stroke]:not([stroke=none], [stroke^=url])) {
   stroke: currentColor;
 }
 
 /**
-  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
- */
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
 svg * {
   transition-property: fill, stroke;
 }
 
 /**
-  Приведение рамок таблиц в классический 'collapse' вид
- */
+   Приведение рамок таблиц в классический 'collapse' вид
+  */
 :where(table) {
   border-collapse: collapse;
   border-color: currentColor;
 }
 
 /**
-  Удаляем все анимации и переходы для людей,
-  которые предпочитают их не использовать
- */
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
@@ -285,7 +274,10 @@ body {
   background-color: var(--color-light);
 }
 
-a, button, textarea, svg * {
+a,
+button,
+textarea,
+svg * {
   transition-duration: var(--transition-duration);
 }
 
@@ -294,7 +286,10 @@ a {
   color: inherit;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: 500;
 }
 
@@ -312,6 +307,47 @@ h3 {
 
 h4 {
   font-size: clamp(18px, 1.3888888889vw, 20px);
+}
+
+.grid {
+  --grid-columns: 1;
+  display: grid;
+  gap: 40px;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+}
+.grid--2 {
+  --grid-columns: 2;
+}
+.grid--3 {
+  --grid-columns: 3;
+}
+.grid--4 {
+  --grid-columns: 4;
+}
+.grid--5 {
+  --grid-columns: 5;
+}
+.grid--6 {
+  --grid-columns: 6;
+}
+.grid--7 {
+  --grid-columns: 7;
+}
+.grid--8 {
+  --grid-columns: 8;
+}
+.grid--9 {
+  --grid-columns: 9;
+}
+.grid--10 {
+  --grid-columns: 10;
+}
+.grid--11 {
+  --grid-columns: 11;
+}
+.grid--12 {
+  --grid-columns: 12;
 }
 
 .button {
@@ -544,6 +580,18 @@ h4 {
 .section--hidden-x {
   overflow-x: hidden;
 }
+.section__header {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+.section__header:not(:last-child) {
+  margin-bottom: 80px;
+}
+.section__description {
+  max-width: 580px;
+}
 
 .hero {
   display: flex;
@@ -656,4 +704,51 @@ h4 {
 }
 .hero__partners-image {
   filter: grayscale(1);
+}
+
+.puddle-bg {
+  background-color: var(--color-accent);
+  border-radius: var(--border-radius-small);
+  padding-inline: 7px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.puddle-bg--light {
+  background-color: var(--color-light);
+}
+
+.service-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 50px;
+  min-height: 310px;
+  background-color: var(--color-gray);
+  border: var(--border);
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow);
+}
+.service-card--accent-bg {
+  background-color: var(--color-accent);
+}
+.service-card--dark-bg {
+  background-color: var(--color-dark);
+}
+.service-card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 30px;
+}
+.service-card__image {
+  align-self: center;
+}
+.service-card__title {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.services__list:not(:last-child) {
+  margin-bottom: 100px;
 }/*# sourceMappingURL=styles.css.map */
